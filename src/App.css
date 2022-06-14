@@ -16,13 +16,16 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  background-image: url(/src/bg-pattern.svg);
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.bg-pattern {
+  width: 100%;
+  z-index: -1;
+  top: -50px;
+}
+
 .text {
   padding: 10px;
   margin-bottom: 30px;
@@ -36,6 +39,7 @@
   background-repeat: no-repeat;
   background-size: 110px;
   background-position: center;
+  color: hsl(225, 20%, 60%);
 }
 
 svg {
@@ -55,6 +59,9 @@ svg {
     6px 76px 48px rgba(0, 0, 0, 0.02);
   width: 100%;
   border-radius: 5px;
+  color: hsl(225, 20%, 60%);
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
 }
 
 h2 {
@@ -66,12 +73,17 @@ h2 {
 .views-month {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-left: 20px;
   padding-right: 20px;
   font-family: "Manrope", sans-serif;
   font-weight: 800;
   margin-top: 10px;
+}
+
+.page-views-label {
+  align-self: center;
+  font-size: 12px;
+  margin-bottom: 15px;
 }
 
 .sign-up-text {
@@ -82,19 +94,19 @@ h2 {
   white-space: pre;
   content: "\a";
 }
+
 .slidecontainer {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.monthly-yearly {
+.monthly-billing {
   font-size: 10px;
   font-family: "Manrope", sans-serif;
   margin-top: 0px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  padding-left: 20px;
   padding-right: 20px;
 }
 
@@ -109,21 +121,21 @@ h2 {
   font-weight: 800;
   font-size: 30px;
   margin-right: 10px;
-  color: black;
+  color: hsl(227, 35%, 25%);
 }
 
-.line {
+.divider {
   opacity: 0.2;
 }
 
-.list-button {
+.list-button-container {
   font-family: "Manrope", sans-serif;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 }
 
 ul {
@@ -142,41 +154,62 @@ ul li:before {
 }
 
 .switch {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 12px;
+  margin-right: 12px;
+  cursor: pointer !important;
+  height: 20px !important;
+  width: 40px !important;
+  background-color: hsl(223, 50%, 87%) !important;
+}
+
+.switch:hover {
+  background-color: hsl(174, 77%, 80%) !important;
+}
+
+.switch > span:first-child {
+  height: 14px !important;
+  width: 14px !important;
+  cursor: pointer !important;
+  top: 2px !important;
+  margin-left: 2px;
+  box-shadow: none !important;
 }
 
 .css-eg0mwd-MuiSlider-thumb {
   background-image: url(/src/icon-slider.svg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 20px;
-  padding: 15px;
+  background-size: 25px;
+  padding: 20px;
   background-color: hsl(174, 86%, 45%) !important;
+  cursor: grab;
 }
 
 .css-14pt78w-MuiSlider-rail {
-  height: 10px !important;
+  height: 6px !important;
   background-color: hsl(224, 65%, 95%) !important;
+  opacity: 1 !important;
 }
 
 .css-1gv0vcd-MuiSlider-track {
-  height: 10px !important;
-  background-color: hsl(223, 50%, 87%) !important;
+  height: 6px !important;
+  background-color: hsl(174, 86%, 45%) !important;
   border: hsl(223, 50%, 87%) !important;
 }
 
-.button {
+.trial-button {
   background-color: hsl(227, 35%, 25%);
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 40px;
   padding-right: 40px;
   border-radius: 30px;
-  color: hsl(230, 100%, 99%);
+  color: hsl(226, 100%, 87%);
   font-size: 12px;
   font-family: "Manrope", sans-serif;
+  font-weight: bold;
 }
+
 a {
   text-decoration: none;
   color: white;
@@ -194,27 +227,22 @@ a {
   color: hsl(15, 100%, 70%);
 }
 
+.MuiSlider-mark {
+  display: none;
+}
+
 /* DESKTOP VIEW */
 
 @media screen and (min-width: 376px) {
   .container {
-    height: 100vh;
     padding-left: 130px;
     padding-right: 130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   .wrapper {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
     background-image: url(/src/bg-pattern.svg);
     background-position: top;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 100%;
     height: 80%;
     padding-bottom: 40px;
     box-shadow: 0.1px 1.5px 1px rgba(0, 0, 0, 0.007),
@@ -224,26 +252,16 @@ a {
       1.8px 22.9px 14.5px rgba(0, 0, 0, 0.02),
       3px 38px 24px rgba(0, 0, 0, 0.023), 6px 76px 48px rgba(0, 0, 0, 0.03);
   }
+
   .text {
-    font-family: "Manrope", sans-serif;
-    font-weight: 600;
-    color: hsl(225, 20%, 60%);
     text-align: center;
     margin-top: 70px;
     padding: 35px;
     height: 130px;
-    position: relative;
-    z-index: 1;
     background-image: url(./pattern-circles.svg);
     background-repeat: no-repeat;
     background-size: initial;
     background-position: center;
-  }
-
-  svg {
-    z-index: 0;
-    top: 0;
-    position: absolute;
   }
 
   .calculator-container {
@@ -259,21 +277,14 @@ a {
     padding-bottom: 40px;
     margin-top: 30px;
     margin-bottom: 50px;
-    border-radius: 5px;
-    color: hsl(225, 20%, 60%);
-    font-family: "Manrope", sans-serif;
-    font-weight: 600;
   }
 
   .views-month {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding-left: 50px;
     padding-right: 50px;
-    font-family: "Manrope", sans-serif;
-    font-weight: 800;
   }
 
   .slidecontainer {
@@ -281,42 +292,22 @@ a {
     padding-right: 40px;
   }
 
-  .monthly-yearly {
-    font-family: "Manrope", sans-serif;
+  .monthly-billing {
     margin-top: 30px;
     font-size: 12px;
-    display: flex;
     justify-content: center;
-    align-items: center;
     margin-left: 110px;
     margin-bottom: 30px;
   }
 
-  .text-montly-fee {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .monthly-fee {
-    font-family: "Manrope", sans-serif;
-    font-weight: 800;
     font-size: 50px;
-    margin-right: 10px;
-    color: black;
   }
 
-  .line {
-    opacity: 0.2;
-  }
-
-  .list-button {
-    font-family: "Manrope", sans-serif;
+  .list-button-container {
     margin-top: 30px;
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
     text-align: left;
     padding-left: 50px;
     padding-right: 50px;
@@ -324,70 +315,49 @@ a {
   }
 
   ul {
-    list-style: none;
     width: 50%;
   }
 
   ul li:before {
-    content: url(/src/icon-check.svg);
     margin-right: 20px;
   }
 
-  .button {
-    background-color: hsl(227, 35%, 25%);
+  .trial-button {
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 50px;
     padding-right: 50px;
-    border-radius: 30px;
-    color: white;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
   }
 
-  .button:hover {
+  .trial-button:hover {
     box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.24),
       0 8px 30px 0 rgba(0, 0, 0, 0.19);
   }
 
-  a {
-    text-decoration: none;
-    color: white;
-  }
   .discount {
     font-size: 11px;
-    margin-left: 15px;
-    background-color: hsl(14, 92%, 95%);
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    border-radius: 20px;
-    color: hsl(15, 100%, 70%);
   }
 
-  .switch {
-    margin-left: 5px;
-    margin-right: 5px;
+  .page-views-label {
+    font-size: 16px;
   }
 
   .css-eg0mwd-MuiSlider-thumb {
-    background-image: url(/src/icon-slider.svg);
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: 30px;
     padding: 25px;
-    background-color: hsl(174, 86%, 45%) !important;
   }
 
   .css-14pt78w-MuiSlider-rail {
     height: 10px !important;
-    background-color: hsl(224, 65%, 95%) !important;
   }
 
   .css-1gv0vcd-MuiSlider-track {
     height: 10px !important;
-    background-color: hsl(223, 50%, 87%) !important;
-    border: hsl(223, 50%, 87%) !important;
+  }
+
+  .bg-pattern {
+    display: none;
   }
 }

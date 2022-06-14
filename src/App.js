@@ -1,25 +1,105 @@
 import "./App.css";
 import React from "react";
-import Switch from "@mui/material/Switch";
 import Slider from "@mui/material/Slider";
+import Switch from "react-ios-switch";
 
 function App() {
   const [toggled, setToggled] = React.useState(false);
-  const [value, setValue] = React.useState(8);
-  const discountPrice = value - value * 0.25;
+  const [value, setValue] = React.useState(3);
+  const mediaWatcher = window.matchMedia("(min-width: 376px)");
+  const [isDesktopScreen, setIsDesktopScreen] = React.useState(
+    mediaWatcher.matches
+  );
+
+  const discountPrice =
+    calculateValue(value).price - calculateValue(value).price * 0.25;
   const handleChange = (e, newValue) => {
-    setValue(newValue);
+    if (newValue !== value) {
+      setValue(newValue);
+    }
   };
 
-  // - 10K pageviews / $8 per month
-  // - 50K pageviews / $12 per month
-  // - 100K pageviews / $16 per month
-  // - 500k pageviews / $24 per month
-  // - 1M pageviews / $36 per month
+  React.useEffect(() => {
+    function updateIsNarrowScreen(e) {
+      setIsDesktopScreen(e.matches);
+    }
+    mediaWatcher.addEventListener("change", updateIsNarrowScreen);
+    return function cleanup() {
+      mediaWatcher.removeEventListener("change", updateIsNarrowScreen);
+    };
+  });
+
+  function calculateValue(value) {
+    switch (value) {
+      case 1:
+        return {
+          price: `8.00`,
+          pageViews: `${10}K`,
+        };
+      case 2:
+        return {
+          price: `12.00`,
+          pageViews: `${50}K`,
+        };
+      case 3:
+        return {
+          price: `16.00`,
+          pageViews: `${100}K`,
+        };
+      case 4:
+        return {
+          price: `24.00`,
+          pageViews: `${500}K`,
+        };
+      case 5:
+        return {
+          price: `36.00`,
+          pageViews: `${1}M`,
+        };
+      default:
+        return {
+          price: `16.00`,
+          pageViews: `${100}K`,
+        };
+    }
+  }
+  const marks = [1, 2, 3, 4, 5].map((value) => ({
+    value,
+    label: null,
+  }));
+
+  const renderSlider = () => (
+    <div className="slidecontainer">
+      <Slider
+        className="slider"
+        defaultValue={8}
+        aria-label="Default"
+        step={null}
+        min={1}
+        max={5}
+        value={value}
+        onChange={handleChange}
+        scale={calculateValue}
+        marks={marks}
+      />
+    </div>
+  );
 
   return (
     <div className="container">
       <div className="wrapper">
+        <svg
+          className="bg-pattern"
+          xmlns="http://www.w3.org/2000/svg"
+          width="1440"
+          height="449"
+        >
+          <path
+            fill="#F1F5FE"
+            fillRule="evenodd"
+            d="M0 0h1440v449H191.5C85.737 449 0 363.263 0 257.5V0z"
+          />
+        </svg>
         <div className="text">
           <h2>Simple, traffic-based pricing</h2>
           <p className="sign-up-text">
@@ -29,42 +109,37 @@ function App() {
         </div>
         <div className="calculator-container">
           <div className="views-month">
-            <p>K PAGEVIEWS</p>
+            <p className="page-views-label">
+              {calculateValue(value).pageViews} PAGEVIEWS
+            </p>
+            {!isDesktopScreen && renderSlider()}
             <div className="text-montly-fee">
               {toggled ? (
-                <p className="monthly-fee">{discountPrice}$</p>
+                <p className="monthly-fee">{`$${discountPrice}.00`}</p>
               ) : (
-                <p className="monthly-fee">{value}$</p>
+                <p className="monthly-fee">{`$${
+                  calculateValue(value).price
+                }`}</p>
               )}
-
               <p>/month</p>
             </div>
           </div>
-          <div className="slidecontainer">
-            <Slider
-              className="slider"
-              defaultValue={8}
-              aria-label="Default"
-              step={4}
-              min={8}
-              max={36}
-              value={value}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="monthly-yearly">
+          {isDesktopScreen && renderSlider()}
+          <div className="monthly-billing">
             <p>Monthly Billing</p>
             <Switch
               className="switch"
-              color="default"
               checked={toggled}
-              onChange={(e) => setToggled(e.target.checked)}
+              onChange={(checked) => setToggled(checked)}
+              onColor="#0FD5C2"
             />
             <p>Yearly Billing</p>
-            <p className="discount">25% discount</p>
+            <p className="discount">
+              {isDesktopScreen ? "25% discount" : "-25%"}
+            </p>
           </div>
-          <hr className="line" />
-          <div className="list-button">
+          <hr className="divider" />
+          <div className="list-button-container">
             <ul>
               <li>Unlimited websites</li>
               <li>100% data ownership</li>
@@ -72,7 +147,7 @@ function App() {
             </ul>
             <div>
               <a href="##">
-                <span className="button">Start my trial</span>
+                <span className="trial-button">Start my trial</span>
               </a>
             </div>
           </div>
