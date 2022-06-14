@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Manrope:wght@600;800&display=swap");
+
+/* MOBILE VIEW */
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-image: url(/src/bg-pattern.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.text {
+  padding: 10px;
+  margin-bottom: 30px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  font-size: 12px;
+  position: relative;
+  z-index: 1;
+  background-image: url(./pattern-circles.svg);
+  background-repeat: no-repeat;
+  background-size: 110px;
+  background-position: center;
+}
+
+svg {
+  z-index: 0;
+  top: 0;
+  position: absolute;
+}
+
+.calculator-container {
+  background-color: white;
+  color: hsl(225, 20%, 60%);
+  font-size: 12px;
+  box-shadow: 0.1px 1.5px 1px rgba(0, 0, 0, 0.005),
+    0.3px 3.4px 2.2px rgba(0, 0, 0, 0.007), 0.5px 6px 3.8px rgba(0, 0, 0, 0.009),
+    0.8px 9.5px 6px rgba(0, 0, 0, 0.01), 1.2px 14.7px 9.3px rgba(0, 0, 0, 0.011),
+    1.8px 22.9px 14.5px rgba(0, 0, 0, 0.013), 3px 38px 24px rgba(0, 0, 0, 0.015),
+    6px 76px 48px rgba(0, 0, 0, 0.02);
+  width: 100%;
+  border-radius: 5px;
+}
+
+h2 {
+  color: hsl(227, 35%, 25%);
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.views-month {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.sign-up-text {
+  color: hsl(225, 20%, 60%);
+}
+
+.day-trial::after {
+  white-space: pre;
+  content: "\a";
+}
+.slidecontainer {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.monthly-yearly {
+  font-size: 10px;
+  font-family: "Manrope", sans-serif;
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.text-montly-fee {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.monthly-fee {
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  margin-right: 10px;
+  color: black;
+}
+
+.line {
+  opacity: 0.2;
+}
+
+.list-button {
+  font-family: "Manrope", sans-serif;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+  padding-left: 0px;
+  margin-bottom: 30px;
+}
+ul li {
+  margin-bottom: 5px;
+}
+
+ul li:before {
+  content: url(/src/icon-check.svg);
+  margin-right: 10px;
+}
+
+.switch {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.css-eg0mwd-MuiSlider-thumb {
+  background-image: url(/src/icon-slider.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding: 15px;
+  background-color: hsl(174, 86%, 45%) !important;
+}
+
+.css-14pt78w-MuiSlider-rail {
+  height: 10px !important;
+  background-color: hsl(224, 65%, 95%) !important;
+}
+
+.css-1gv0vcd-MuiSlider-track {
+  height: 10px !important;
+  background-color: hsl(223, 50%, 87%) !important;
+  border: hsl(223, 50%, 87%) !important;
+}
+
+.button {
+  background-color: hsl(227, 35%, 25%);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 30px;
+  color: hsl(230, 100%, 99%);
+  font-size: 12px;
+  font-family: "Manrope", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.discount {
+  font-size: 10px;
+  margin-left: 15px;
+  background-color: hsl(14, 92%, 95%);
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 20px;
+  color: hsl(15, 100%, 70%);
+}
+
+/* DESKTOP VIEW */
+
+@media screen and (min-width: 376px) {
+  .container {
+    height: 100vh;
+    padding-left: 130px;
+    padding-right: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(/src/bg-pattern.svg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 80%;
+    padding-bottom: 40px;
+    box-shadow: 0.1px 1.5px 1px rgba(0, 0, 0, 0.007),
+      0.3px 3.4px 2.2px rgba(0, 0, 0, 0.01),
+      0.5px 6px 3.8px rgba(0, 0, 0, 0.013), 0.8px 9.5px 6px rgba(0, 0, 0, 0.015),
+      1.2px 14.7px 9.3px rgba(0, 0, 0, 0.017),
+      1.8px 22.9px 14.5px rgba(0, 0, 0, 0.02),
+      3px 38px 24px rgba(0, 0, 0, 0.023), 6px 76px 48px rgba(0, 0, 0, 0.03);
+  }
+  .text {
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    color: hsl(225, 20%, 60%);
+    text-align: center;
+    margin-top: 70px;
+    padding: 35px;
+    height: 130px;
+    position: relative;
+    z-index: 1;
+    background-image: url(./pattern-circles.svg);
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-position: center;
+  }
+
+  svg {
+    z-index: 0;
+    top: 0;
+    position: absolute;
+  }
+
+  .calculator-container {
+    background-color: white;
+    box-shadow: 0.1px 1.5px 1px rgba(0, 0, 0, 0.005),
+      0.3px 3.4px 2.2px rgba(0, 0, 0, 0.007),
+      0.5px 6px 3.8px rgba(0, 0, 0, 0.009), 0.8px 9.5px 6px rgba(0, 0, 0, 0.01),
+      1.2px 14.7px 9.3px rgba(0, 0, 0, 0.011),
+      1.8px 22.9px 14.5px rgba(0, 0, 0, 0.013),
+      3px 38px 24px rgba(0, 0, 0, 0.015), 6px 76px 48px rgba(0, 0, 0, 0.02);
+
+    width: 50%;
+    padding-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    color: hsl(225, 20%, 60%);
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+  }
+
+  .views-month {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+  }
+
+  .slidecontainer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .monthly-yearly {
+    font-family: "Manrope", sans-serif;
+    margin-top: 30px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 110px;
+    margin-bottom: 30px;
+  }
+
+  .text-montly-fee {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .monthly-fee {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+    margin-right: 10px;
+    color: black;
+  }
+
+  .line {
+    opacity: 0.2;
+  }
+
+  .list-button {
+    font-family: "Manrope", sans-serif;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 0px;
+  }
+
+  ul {
+    list-style: none;
+    width: 50%;
+  }
+
+  ul li:before {
+    content: url(/src/icon-check.svg);
+    margin-right: 20px;
+  }
+
+  .button {
+    background-color: hsl(227, 35%, 25%);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 30px;
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  .button:hover {
+    box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.24),
+      0 8px 30px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  .discount {
+    font-size: 11px;
+    margin-left: 15px;
+    background-color: hsl(14, 92%, 95%);
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 20px;
+    color: hsl(15, 100%, 70%);
+  }
+
+  .switch {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .css-eg0mwd-MuiSlider-thumb {
+    background-image: url(/src/icon-slider.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    padding: 25px;
+    background-color: hsl(174, 86%, 45%) !important;
+  }
+
+  .css-14pt78w-MuiSlider-rail {
+    height: 10px !important;
+    background-color: hsl(224, 65%, 95%) !important;
+  }
+
+  .css-1gv0vcd-MuiSlider-track {
+    height: 10px !important;
+    background-color: hsl(223, 50%, 87%) !important;
+    border: hsl(223, 50%, 87%) !important;
+  }
+}
