@@ -8,5 +8,5 @@
 
 The website was built for:
 
-Desktop devices: 1440x1080
+Desktop devices: 1440x1080 & 
 Mobile devices: 375x667
